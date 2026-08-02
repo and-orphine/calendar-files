@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>BDAY BASS — Sacha + Jules</title>
+
+  <meta
+    name="description"
+    content="BDAY BASS with DJs Sacha and Jules, Friday 11 September 2026 at Het Dorp, Amsterdam."
+  >
+
+  <style>
+    :root {
+      --background: #111118;
+      --panel: #20202b;
+      --text: #ffffff;
+      --muted: #c9c9d2;
+      --cyan: #00dfee;
+      --pink: #fa28ca;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, #32274a 0, var(--background) 45%);
+      color: var(--text);
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(100% - 32px, 720px);
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .card {
+      overflow: hidden;
+      background: rgba(32, 32, 43, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+    }
+
+    .flyer {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .content {
+      padding: 28px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .date {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .venue {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 14px;
+    }
+
+    .button {
+      display: block;
+      padding: 16px 20px;
+      border-radius: 12px;
+      color: #09090d;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition:
+        transform 150ms ease,
+        filter 150ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .google {
+      background: linear-gradient(90deg, #a6f7e5, var(--pink));
+    }
+
+    .calendar {
+      background: var(--cyan);
+    }
+
+    .details {
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding-top: 24px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        width: min(100% - 20px, 720px);
+        padding-top: 10px;
+      }
+
+      .card {
+        border-radius: 16px;
+      }
+
+      .content {
+        padding: 22px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article class="card">
+      <img
+        class="flyer"
+        src="bday-bass.jpg"
+        alt="BDAY BASS event flyer"
+      >
+
+      <section class="content">
+        <h1>BDAY BASS</h1>
+
+        <p class="date">
+          Friday 11 September 2026 · 20:30–02:00
+        </p>
+
+        <p class="venue">
+          Het Dorp · Amsterdam
+        </p>
+
+        <div class="buttons">
+          <a
+            class="button google"
+            href="GOOGLE-CALENDAR-URL"
+            target="_blank"
+            rel="noopener"
+          >
+            Google Calendar
+          </a>
+
+          <a
+            class="button calendar"
+            href="bday-bass.ics"
+          >
+            Apple / Outlook Calendar
+          </a>
+        </div>
+
+        <p class="details">
+          DJs Sacha + Jules<br>
+          Amapiano × electronica × bass × DnB × tech ×
+          neue Welle × indie × hip-hop × punk
+        </p>
+      </section>
+    </article>
+
+    <footer>
+      BDAY BASS · Amsterdam
+    </footer>
+  </main>
+</body>
+</html>
