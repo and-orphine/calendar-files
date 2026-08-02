@@ -8,26 +8,27 @@
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
 
-  <title>BDAY BASS — Sacha + Jules</title>
+  <title>BDAY BASS — sacha + jules</title>
 
   <meta
     name="description"
-    content="BDAY BASS with DJs Sacha and Jules. Friday 11 September 2026 at Het Dorp, Amsterdam."
+    content="BDAY BASS with djs sacha and jules. friday 11 september 2026 at het dorp, amsterdam."
   >
 
-  <meta name="theme-color" content="#16131f">
+  <meta name="theme-color" content="#ff681e">
 
   <style>
     :root {
-      --background-dark: #0d0c12;
-      --background-light: #292037;
-      --panel: rgba(29, 27, 39, 0.88);
-      --panel-border: rgba(255, 255, 255, 0.14);
-      --text: #ffffff;
-      --muted: #d2ced9;
+      --page-background: #ffffff;
+      --card-background: #ffffff;
+      --header-orange: #ff681e;
+      --header-orange-light: #ff8b3d;
+      --header-text: #000000;
+      --body-text: #111111;
+      --muted: #565656;
+      --border: #dedede;
       --cyan: #00e5f2;
       --green: #35ef7e;
-      --purple: #7928ff;
       --pink: #ff0a78;
       --yellow: #ffe719;
       --button-text: #08070c;
@@ -45,67 +46,13 @@
       min-height: 100vh;
       margin: 0;
       overflow-x: hidden;
-      background:
-        radial-gradient(
-          circle at 15% 10%,
-          rgba(255, 10, 120, 0.24),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at 85% 25%,
-          rgba(0, 229, 242, 0.22),
-          transparent 38%
-        ),
-        radial-gradient(
-          circle at 50% 90%,
-          rgba(121, 40, 255, 0.25),
-          transparent 44%
-        ),
-        linear-gradient(
-          145deg,
-          var(--background-dark),
-          var(--background-light)
-        );
-      background-attachment: fixed;
-      color: var(--text);
+      background: var(--page-background);
+      color: var(--body-text);
       font-family:
         Arial,
         Helvetica,
         sans-serif;
       line-height: 1.5;
-    }
-
-    body::before {
-      position: fixed;
-      z-index: -1;
-      inset: -30%;
-      content: "";
-      background:
-        conic-gradient(
-          from 180deg,
-          rgba(255, 10, 120, 0.11),
-          rgba(121, 40, 255, 0.08),
-          rgba(0, 229, 242, 0.11),
-          rgba(53, 239, 126, 0.08),
-          rgba(255, 231, 25, 0.08),
-          rgba(255, 10, 120, 0.11)
-        );
-      filter: blur(80px);
-      animation: backgroundShift 18s linear infinite;
-    }
-
-    @keyframes backgroundShift {
-      from {
-        transform: rotate(0deg) scale(1);
-      }
-
-      50% {
-        transform: rotate(180deg) scale(1.12);
-      }
-
-      to {
-        transform: rotate(360deg) scale(1);
-      }
     }
 
     main {
@@ -119,32 +66,80 @@
 
     .event-card {
       overflow: hidden;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
+      background: var(--card-background);
+      border: 1px solid var(--border);
       border-radius: 28px;
       box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.52),
-        0 0 40px rgba(255, 10, 120, 0.08);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+        0 24px 70px rgba(0, 0, 0, 0.14),
+        0 4px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .header-area {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(255, 255, 255, 0.2),
+          transparent 34%
+        ),
+        linear-gradient(
+          145deg,
+          var(--header-orange-light),
+          var(--header-orange)
+        );
+      color: var(--header-text);
+    }
+
+    .header-area::before {
+      position: absolute;
+      inset: -40%;
+      content: "";
+      pointer-events: none;
+      background:
+        conic-gradient(
+          from 180deg,
+          transparent,
+          rgba(255, 255, 255, 0.12),
+          transparent,
+          rgba(255, 255, 255, 0.08),
+          transparent
+        );
+      animation: headerShift 18s linear infinite;
+    }
+
+    @keyframes headerShift {
+      from {
+        transform: rotate(0deg) scale(1);
+      }
+
+      50% {
+        transform: rotate(180deg) scale(1.08);
+      }
+
+      to {
+        transform: rotate(360deg) scale(1);
+      }
     }
 
     .hero {
+      position: relative;
+      z-index: 1;
       padding: 34px 24px 26px;
       text-align: center;
     }
 
     .eyebrow {
       margin: 0 0 12px;
-      color: var(--cyan);
+      color: var(--header-text);
       font-size: 0.78rem;
       font-weight: 800;
-      letter-spacing: 0.23em;
-      text-transform: uppercase;
+      letter-spacing: 0.18em;
     }
 
     h1 {
       margin: 0;
+      color: var(--header-text);
       font-family:
         Impact,
         Haettenschweiler,
@@ -156,13 +151,11 @@
       line-height: 0.88;
       letter-spacing: 0.025em;
       text-transform: uppercase;
-      text-shadow:
-        3px 3px 0 rgba(255, 10, 120, 0.9),
-        -3px -3px 0 rgba(0, 229, 242, 0.75);
     }
 
     .event-date {
       margin: 22px 0 4px;
+      color: var(--header-text);
       font-size: clamp(1rem, 4vw, 1.35rem);
       font-weight: 900;
       letter-spacing: 0.02em;
@@ -170,17 +163,19 @@
 
     .venue {
       margin: 0;
-      color: var(--muted);
+      color: var(--header-text);
       font-size: 1rem;
     }
 
     .countdown-section {
+      position: relative;
+      z-index: 1;
       padding: 0 20px 30px;
     }
 
     .countdown-label {
       margin: 0 0 12px;
-      color: var(--muted);
+      color: var(--header-text);
       font-size: 0.75rem;
       font-weight: 800;
       letter-spacing: 0.18em;
@@ -197,14 +192,15 @@
     .countdown-item {
       min-width: 0;
       padding: 14px 6px 12px;
-      background: rgba(255, 255, 255, 0.075);
-      border: 1px solid rgba(255, 255, 255, 0.11);
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.38);
       border-radius: 14px;
       text-align: center;
     }
 
     .countdown-number {
       display: block;
+      color: var(--header-text);
       font-family:
         Impact,
         Haettenschweiler,
@@ -218,20 +214,24 @@
     .countdown-unit {
       display: block;
       margin-top: 7px;
-      color: var(--muted);
+      color: var(--header-text);
       font-size: clamp(0.55rem, 2vw, 0.7rem);
       font-weight: 800;
       letter-spacing: 0.11em;
       text-transform: uppercase;
     }
 
+    .flyer-section {
+      background: #ffffff;
+      padding: 22px 18px 0;
+    }
+
     .flyer-wrap {
       position: relative;
       overflow: hidden;
-      margin: 0 18px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
+      border: 1px solid var(--border);
       border-radius: 20px;
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.14);
     }
 
     .flyer {
@@ -241,6 +241,7 @@
     }
 
     .content {
+      background: #ffffff;
       padding: 26px 22px 30px;
     }
 
@@ -257,7 +258,7 @@
       min-height: 58px;
       padding: 15px 20px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.14);
       border-radius: 14px;
       color: var(--button-text);
       font-family:
@@ -272,7 +273,7 @@
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+      box-shadow: 0 9px 24px rgba(0, 0, 0, 0.12);
       transition:
         transform 160ms ease,
         box-shadow 160ms ease,
@@ -287,7 +288,7 @@
         linear-gradient(
           110deg,
           transparent 20%,
-          rgba(255, 255, 255, 0.35) 45%,
+          rgba(255, 255, 255, 0.45) 45%,
           transparent 70%
         );
       transform: translateX(-120%);
@@ -297,8 +298,8 @@
     .button:hover,
     .button:focus-visible {
       transform: translateY(-3px);
-      box-shadow: 0 15px 34px rgba(0, 0, 0, 0.34);
-      filter: brightness(1.06);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+      filter: brightness(1.04);
     }
 
     .button:hover::after,
@@ -307,7 +308,7 @@
     }
 
     .button:focus-visible {
-      outline: 3px solid #ffffff;
+      outline: 3px solid #000000;
       outline-offset: 3px;
     }
 
@@ -342,7 +343,7 @@
     .venue-link {
       display: block;
       margin-top: 18px;
-      color: var(--muted);
+      color: #d64516;
       font-size: 0.9rem;
       font-weight: 700;
       text-align: center;
@@ -352,7 +353,7 @@
 
     .venue-link:hover,
     .venue-link:focus-visible {
-      color: #ffffff;
+      color: #000000;
     }
 
     .details {
@@ -363,23 +364,22 @@
     }
 
     .details strong {
-      color: var(--text);
+      color: var(--body-text);
     }
 
     footer {
       padding: 24px 10px 0;
-      color: rgba(255, 255, 255, 0.62);
+      color: #555555;
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-align: center;
-      text-transform: uppercase;
     }
 
     .event-ended {
       grid-column: 1 / -1;
       padding: 18px;
-      color: #ffffff;
+      color: var(--header-text);
       font-family:
         Impact,
         Haettenschweiler,
@@ -423,8 +423,12 @@
         border-radius: 11px;
       }
 
+      .flyer-section {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+
       .flyer-wrap {
-        margin: 0 10px;
         border-radius: 14px;
       }
 
@@ -457,56 +461,60 @@
   <main>
     <article class="event-card">
 
-      <header class="hero">
-        <p class="eyebrow">Sacha + Jules present</p>
+      <div class="header-area">
+        <header class="hero">
+          <p class="eyebrow">sacha + jules present</p>
 
-        <h1>BDAY BASS</h1>
+          <h1>BDAY BASS</h1>
 
-        <p class="event-date">
-          Friday 11 September 2026 · 20:30–02:00
-        </p>
+          <p class="event-date">
+            friday 11 september 2026 · 20:30–02:00
+          </p>
 
-        <p class="venue">
-          Het Dorp · Noordwal 1 · Amsterdam
-        </p>
-      </header>
+          <p class="venue">
+            het dorp · noordwal 1 · amsterdam
+          </p>
+        </header>
 
-      <section
-        class="countdown-section"
-        aria-label="Countdown to BDAY BASS"
-      >
-        <p class="countdown-label">Countdown to BDAY BASS</p>
+        <section
+          class="countdown-section"
+          aria-label="countdown to BDAY BASS"
+        >
+          <p class="countdown-label">COUNTDOWN TO BDAY BASS</p>
 
-        <div class="countdown" id="countdown">
-          <div class="countdown-item">
-            <span class="countdown-number" id="days">00</span>
-            <span class="countdown-unit">Days</span>
+          <div class="countdown" id="countdown">
+            <div class="countdown-item">
+              <span class="countdown-number" id="days">00</span>
+              <span class="countdown-unit">DAYS</span>
+            </div>
+
+            <div class="countdown-item">
+              <span class="countdown-number" id="hours">00</span>
+              <span class="countdown-unit">HOURS</span>
+            </div>
+
+            <div class="countdown-item">
+              <span class="countdown-number" id="minutes">00</span>
+              <span class="countdown-unit">MINUTES</span>
+            </div>
+
+            <div class="countdown-item">
+              <span class="countdown-number" id="seconds">00</span>
+              <span class="countdown-unit">SECONDS</span>
+            </div>
           </div>
+        </section>
+      </div>
 
-          <div class="countdown-item">
-            <span class="countdown-number" id="hours">00</span>
-            <span class="countdown-unit">Hours</span>
-          </div>
-
-          <div class="countdown-item">
-            <span class="countdown-number" id="minutes">00</span>
-            <span class="countdown-unit">Minutes</span>
-          </div>
-
-          <div class="countdown-item">
-            <span class="countdown-number" id="seconds">00</span>
-            <span class="countdown-unit">Seconds</span>
-          </div>
+      <section class="flyer-section">
+        <div class="flyer-wrap">
+          <img
+            class="flyer"
+            src="bday-bass.png"
+            alt="BDAY BASS flyer featuring djs sacha and jules"
+          >
         </div>
       </section>
-
-      <div class="flyer-wrap">
-        <img
-          class="flyer"
-          src="bday-bass.png"
-          alt="BDAY BASS flyer featuring DJs Sacha and Jules"
-        >
-      </div>
 
       <section class="content">
         <div class="buttons">
@@ -517,14 +525,14 @@
             target="_blank"
             rel="noopener"
           >
-            Google Calendar
+            GOOGLE CALENDAR
           </a>
 
           <a
             class="button calendar"
             href="bday-bass.ics"
           >
-            Apple / Outlook Calendar
+            APPLE / OUTLOOK CALENDAR
           </a>
 
           <a
@@ -533,7 +541,7 @@
             target="_blank"
             rel="noopener"
           >
-            Open in Google Maps
+            OPEN IN GOOGLE MAPS
           </a>
 
         </div>
@@ -544,20 +552,20 @@
           target="_blank"
           rel="noopener"
         >
-          Visit the Het Dorp website
+          visit the het dorp website
         </a>
 
         <p class="details">
-          <strong>DJs Sacha + Jules</strong><br>
-          Amapiano × electronica × bass × DnB × tech ×
-          neue Welle × indie × hip-hop × punk
+          <strong>djs sacha + jules</strong><br>
+          amapiano × electronica × bass × dnb × tech ×
+          neue welle × indie × hip-hop × punk
         </p>
       </section>
 
     </article>
 
     <footer>
-      BDAY BASS · Amsterdam
+      BDAY BASS · amsterdam
     </footer>
   </main>
 
@@ -580,7 +588,7 @@
 
       if (difference <= 0) {
         countdownElement.innerHTML =
-          '<div class="event-ended">BDAY BASS is happening now</div>';
+          '<div class="event-ended">BDAY BASS IS HAPPENING NOW</div>';
         return;
       }
 
